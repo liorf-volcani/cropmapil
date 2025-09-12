@@ -1,33 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
   <meta charset="utf-8">
-  <title>CropMapIL – Interactive Maps</title>
+  <title>CropMapIL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    html, body {
-      margin: 0; padding: 0; height: 100%; width: 100%;
-      font-family: system-ui, sans-serif; text-align: center;
+    body {
+      font-family: system-ui, sans-serif;
+      text-align: center;
+      margin: 0; padding: 2em;
+      background: #f8f9fa; color: #333;
     }
-    #message { display: flex; flex-direction: column; justify-content: center;
-               align-items: center; height: 100%; }
-    iframe { border: 0; width: 100%; height: 100%; display: none; }
+    h2 { margin-top: 1em; }
+    a { color: #0078d4; text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <div id="message">
-    <h2>CropMapIL – Interactive Maps</h2>
-    <p>These maps are in development and may not fully represent final results.</p>
-    <p>Loading in 5 seconds… <a href="#" id="skip">View now</a></p>
-  </div>
+  <h2>CropMapIL</h2>
 
-  <iframe id="mapframe" src="https://rsc-cropmap-lzp.projects.earthengine.app/view/poster"></iframe>
+  <p>
+    המפות עדיין בתהליך פיתוח והן אינן התוצר הסופי.<br>
+    הן זמינות לצפייה במהלך ימי הכנס בלבד.<br>
+    נשמח לפידבק או לשאלות ל־<a href="mailto:info@CropMapIL.org">info@CropMapIL.org</a>.<br>
+    למעבר למפות <a href="https://rsc-cropmap-lzp.projects.earthengine.app/view/poster">לחצו כאן</a> או המתינו 5 שניות.
+  </p>
 
   <script>
-    const msg = document.getElementById('message');
-    const frame = document.getElementById('mapframe');
-    const showMap = () => { msg.style.display = 'none'; frame.style.display = 'block'; };
-    document.getElementById('skip').onclick = showMap;
-    setTimeout(showMap, 5000);
+    setTimeout(function () {
+      window.location.href = "https://rsc-cropmap-lzp.projects.earthengine.app/view/poster";
+    }, 5000);
   </script>
 </body>
 </html>
