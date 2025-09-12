@@ -1,11 +1,33 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="refresh" content="0;url=https://liorf.users.earthengine.app/view/cropmapil">
-  <title>Redirecting...</title>
+  <title>CropMapIL – Interactive Maps</title>
+  <style>
+    html, body {
+      margin: 0; padding: 0; height: 100%; width: 100%;
+      font-family: system-ui, sans-serif; text-align: center;
+    }
+    #message { display: flex; flex-direction: column; justify-content: center;
+               align-items: center; height: 100%; }
+    iframe { border: 0; width: 100%; height: 100%; display: none; }
+  </style>
 </head>
 <body>
-  <p>Redirecting to <a href="https://liorf.users.earthengine.app/view/cropmapil">interactive map</a>…</p>
+  <div id="message">
+    <h2>CropMapIL – Interactive Maps</h2>
+    <p>These maps are in development and may not fully represent final results.</p>
+    <p>Loading in 5 seconds… <a href="#" id="skip">View now</a></p>
+  </div>
+
+  <iframe id="mapframe" src="https://rsc-cropmap-lzp.projects.earthengine.app/view/poster"></iframe>
+
+  <script>
+    const msg = document.getElementById('message');
+    const frame = document.getElementById('mapframe');
+    const showMap = () => { msg.style.display = 'none'; frame.style.display = 'block'; };
+    document.getElementById('skip').onclick = showMap;
+    setTimeout(showMap, 5000);
+  </script>
 </body>
 </html>
